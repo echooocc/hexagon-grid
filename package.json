@@ -1,0 +1,33 @@
+{
+  "name": "hexgrid",
+  "version": "0.0.0",
+  "description": "OICR",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "build-sass": "node-sass public/sass/main.scss build/main.css",
+    "build-js": "browserify public/js/app.js -o build/app.js",
+    "watch-sass": "node-sass -w public/sass/main.scss -o build/",
+    "watch-js": "watchify public/js/app.js -o build/app.js -v",
+    "build-min-sass": "cleancss build/main.css -o build/main.min.css",
+    "build-min-js": "uglifyjs build/app.js -o build/app.min.js",
+    "watch": "npm run watch-sass & npm run watch-js",
+    "build": "npm run build-min-sass & npm run build-min-js"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "author": "Echo Yu",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "browserify": "^13.1.0",
+    "clean-css": "^3.4.19",
+    "express": "^4.14.0",
+    "inert": "^4.0.1",
+    "jquery": "^3.1.0",
+    "node-sass": "^3.8.0",
+    "uglifyjs": "^2.4.10",
+    "watchify": "^3.7.0"
+  }
+}

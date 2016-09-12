@@ -1,0 +1,78 @@
+@import "base";
+@import "hex";
+
+$colorBlue: #153e56;
+$colorGreen: #9fb9b4;
+$colorOrange: #dba344;
+$colorGin: #d9ddd0;
+
+@mixin fillColor($color) {
+  color: white;
+  background-color: $color;
+  &:before, &:after {
+    background-color: $color;
+    z-index: -100;   
+  }
+}
+
+@mixin tranform($deg) {
+  display: block;
+  transform: rotate($deg);
+  -webkit-transform: rotate($deg);
+  color: $colorBlue;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.list {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding-left: 0;
+  text-align: center; 
+
+}
+
+.wrapper {
+  margin-top: 20px;
+  margin-left: 20px; 
+}
+
+.left {
+  margin-left: $hexSize/2; 
+}
+
+span.hex {
+  font-size: 10px;
+  text-transform: uppercase;
+  padding-top: $hexSize*0.17;
+}
+
+span.blue {
+  @include fillColor($colorBlue);
+}
+
+span.green {
+  @include fillColor($colorGreen);
+  &.transform > .word {
+    display: block;
+    @include tranform(90deg);
+  }
+}
+
+span.gin {
+  @include fillColor($colorGin);
+  &.transform > .word {
+    display: block;
+    @include tranform(-45deg);
+  }
+}
+
+span.orange {
+  @include fillColor($colorOrange);
+  &.transform > .word {
+    display: block;
+    @include tranform(45deg);
+  }
+}

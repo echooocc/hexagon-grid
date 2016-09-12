@@ -1,0 +1,59 @@
+$borderColor: grey;
+$borderWidth: 1px;
+
+$hexSize:100px;
+
+$hexMarginSize:5px;
+
+@mixin border {
+  border-left: $borderWidth solid $borderColor;
+  border-right: $borderWidth solid $borderColor;
+}
+
+@mixin rotate($deg) {
+  -webkit-transform: rotate($deg);
+  -transform: rotate($deg);
+}
+
+.hex-wrapper {
+  width: $hexSize;
+  height: $hexSize;
+
+  position: relative;
+  display: inline-block;
+
+  border: $hexMarginSize solid transparent;
+  margin-top: -$hexSize*0.14;
+}
+
+.hex {
+  width: 100%;
+  height: calc(100% * 0.57735);
+  display: inline-block;
+
+  margin-top: calc(100%*0.211325);
+  @include border;
+}
+
+.hex:before {
+  content: '';
+  position: absolute;
+  height: inherit;
+  width: inherit;
+  left: 0;
+  top: calc(100%*0.211325);
+  @include rotate(60deg);
+  @include border;
+}
+
+.hex:after {
+  content: '';
+  position: absolute;
+  height: inherit;
+  width: inherit;
+  left: 0;
+  bottom: calc(100%*0.211325);
+  @include rotate(-60deg);
+  @include border;
+}
+
