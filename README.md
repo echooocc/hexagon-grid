@@ -1,3 +1,5 @@
+Solutions:
+
 ###  1. app.js; dynamic rendering the hexagon grids
 
 * HEX_COUNT, controls how many hexagon in one page
